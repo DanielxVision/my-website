@@ -1,5 +1,9 @@
-document.getElementById("btn").onclick = function(){
+function scrollToProjects(){
+document.getElementById("projects").scrollIntoView({
+behavior:"smooth"
+})
+}
 
-alert("More features coming soon 🚀")
-
+function sendEmail(){
+window.location.href="mailto:example@email.com"
 }
