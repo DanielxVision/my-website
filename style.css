@@ -6,16 +6,19 @@ body{
 margin:0;
 font-family:Poppins;
 color:white;
-background:linear-gradient(120deg,#0f0f0f,#111,#0b0b0b);
-background-size:400% 400%;
-animation:gradientFlow 12s ease infinite;
+background:#0b0b0b;
 overflow-x:hidden;
 }
 
-@keyframes gradientFlow{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* particles background */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
 }
 
 nav{
@@ -48,6 +51,8 @@ nav a:hover{
 color:white;
 }
 
+/* hero section */
+
 .hero{
 height:80vh;
 display:flex;
@@ -55,21 +60,42 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(10px);
+border-radius:20px;
+margin:60px;
+padding:40px;
 }
 
+/* glowing title */
+
 .main-title{
-font-size:90px;
-letter-spacing:8px;
-background:linear-gradient(90deg,#ffffff,#999,#ffffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:100px;
+letter-spacing:10px;
+animation:glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #fff,0 0 20px #888;
+}
+to{
+text-shadow:0 0 20px #fff,0 0 40px #aaa;
+}
+}
+
+/* sections */
+
+.section{
+text-align:center;
+padding:80px;
 }
 
 .cards{
 display:flex;
 justify-content:center;
 gap:30px;
-padding:80px;
 flex-wrap:wrap;
 }
 
@@ -106,46 +132,9 @@ transform:scale(1.1);
 background:rgba(255,255,255,0.25);
 }
 
-.contact{
-text-align:center;
-padding:80px;
-}
-
 footer{
 text-align:center;
 padding:40px;
 color:#777;
 border-top:1px solid #222;
-}
-
-/* bubbles */
-
-.bubbles span{
-position:absolute;
-bottom:-50px;
-width:20px;
-height:20px;
-background:rgba(255,255,255,0.08);
-border-radius:50%;
-animation:float 12s infinite;
-}
-
-.bubbles span:nth-child(2){left:20%;animation-delay:2s}
-.bubbles span:nth-child(3){left:40%;animation-delay:4s}
-.bubbles span:nth-child(4){left:60%;animation-delay:1s}
-.bubbles span:nth-child(5){left:80%;animation-delay:3s}
-.bubbles span:nth-child(6){left:90%;animation-delay:5s}
-
-@keyframes float{
-0%{
-transform:translateY(0);
-opacity:0;
-}
-50%{
-opacity:1;
-}
-100%{
-transform:translateY(-100vh);
-opacity:0;
-}
 }
