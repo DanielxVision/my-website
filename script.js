@@ -30,20 +30,70 @@ let scripts = {
 
 script1: `-- Gamepass Script
 local MarketplaceService = game:GetService("MarketplaceService")
+local Players = game:GetService("Players")
 
-print("Gamepass system loaded")`,
+local GAMEPASS_ID = 12345678 - - - put your own gamepass ID
 
-script2: `-- Door Script
-script.Parent.Touched:Connect(function(hit)
-script.Parent.Transparency = 1
+Players.PlayerAdded:Connect(function(player)
+
+local success, ownsPass = pcall(function()
+return MarketplaceService:UserOwnsGamePassAsync(player.UserId, GAMEPASS_ID)
+end)
+
+if ownsPass then
+player.CharacterAdded:Connect(function(char)
+local humanoid = char:WaitForChild("Humanoid")
+humanoid.JumpPower = 100
+end)
+end
+
 end)`,
 
+script2: `-- Door Script
+local door = script.Parent
+local debounce = false
+
+door.Touched:Connect(function(hit)
+
+if debounce then return end
+
+local character = hit.Parent
+local humanoid = character:FindFirstChild("Humanoid")
+
+if humanoid then
+
+debounce = true
+
+door.Transparency = 1
+door.CanCollide = false
+
+wait(3)
+
+door.Transparency = 0
+door.CanCollide = true
+
+debounce = false
+
+end
+
+end)`,
+  
 script3: `-- Leaderboard Script
 game.Players.PlayerAdded:Connect(function(player)
 
-local stats = Instance.new("Folder")
-stats.Name = "leaderstats"
-stats.Parent = player
+local leaderstats = Instance.new("Folder")
+leaderstats.Name = "leaderstats"
+leaderstats.Parent = player
+
+local Coins = Instance.new("IntValue")
+Coins.Name = "Coins"
+Coins.Value = 0
+Coins.Parent = leaderstats
+
+local Level = Instance.new("IntValue")
+Level.Name = "Level"
+Level.Value = 1
+Level.Parent = leaderstats
 
 end)`
 
