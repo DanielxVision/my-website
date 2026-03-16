@@ -119,6 +119,47 @@ let text = document.getElementById("scriptCode").innerText;
 
 navigator.clipboard.writeText(text);
 
+  particlesJS("particles-js", {
+particles: {
+number: { value: 80 },
+color: { value: "#ffffff" },
+shape: { type: "circle" },
+opacity: { value: 0.2 },
+size: { value: 3 },
+move: {
+enable: true,
+speed: 1
+}
+},
+interactivity: {
+events: {
+onhover: {
+enable: true,
+mode: "repulse"
+}
+}
+}
+});
+
+function scrollToTutorials(){
+document.getElementById("tutorials").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+/* TITLE PARALLAX EFFECT */
+
+const title = document.querySelector(".main-title");
+
+document.addEventListener("mousemove", function(e){
+
+let x = (window.innerWidth / 2 - e.pageX) / 40;
+let y = (window.innerHeight / 2 - e.pageY) / 40;
+
+title.style.transform = `translate(${x}px, ${y}px)`;
+
+});
+
 alert("Script copied!");
 
 }
