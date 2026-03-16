@@ -1,9 +1,7 @@
-function scrollToProjects(){
-document.getElementById("projects").scrollIntoView({
+function scrollToTutorials(){
+
+document.getElementById("tutorials").scrollIntoView({
 behavior:"smooth"
 })
-}
 
-function sendEmail(){
-window.location.href="mailto:example@email.com"
 }
