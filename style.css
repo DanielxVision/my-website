@@ -106,6 +106,8 @@ to{transform:scale(1.2);}
 font-size:100px;
 letter-spacing:10px;
 animation:glow 3s ease-in-out infinite alternate;
+transition:transform 0.1s ease;
+cursor:default;
 }
 
 @keyframes glow{
