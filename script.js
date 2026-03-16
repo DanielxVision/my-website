@@ -26,14 +26,6 @@ behavior:"smooth"
 });
 }
 
-function copyScript(id){
-
-let text = document.getElementById(id).innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("Script copied!");
-}
 let scripts = {
 
 script1: `-- Gamepass Script
