@@ -25,3 +25,12 @@ document.getElementById("tutorials").scrollIntoView({
 behavior:"smooth"
 });
 }
+
+function copyScript(id){
+
+let text = document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Script copied!");
+}
