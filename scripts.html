@@ -24,19 +24,70 @@
 <div class="card">
 <h3>Speed Script</h3>
 <p>Increase player speed.</p>
-<button onclick="copyText('game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50')">Copy</button>
+<button onclick="copyText(-- Speed Script
+local player = game.Players.LocalPlayer
+
+player.CharacterAdded:Connect(function(char)
+local humanoid = char:WaitForChild("Humanoid")
+humanoid.WalkSpeed = 50
+end)
+
+-- if character already loaded
+if player.Character then
+player.Character.Humanoid.WalkSpeed = 50
+end)">Copy</button>
+  
 </div>
 
 <div class="card">
 <h3>Infinite Jump</h3>
 <p>Jump unlimited times.</p>
-<button onclick="copyText('local UIS = game:GetService(\"UserInputService\") ...')">Copy</button>
+<button onclick="copyText(-- Infinite Jump Script
+local UserInputService = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+
+UserInputService.JumpRequest:Connect(function()
+local character = player.Character
+if character then
+local humanoid = character:FindFirstChildOfClass("Humanoid")
+if humanoid then
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end
+end
+end)">Copy</button>
+  
 </div>
 
 <div class="card">
 <h3>Fly Script</h3>
 <p>Simple fly system.</p>
-<button onclick="copyText('loadstring(\"fly script here\")')">Copy</button>
+<button onclick="copyText(-- Fly Script
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local flying = false
+local speed = 50
+
+mouse.KeyDown:Connect(function(key)
+if key == "f" then
+flying = not flying
+
+if flying then
+local bodyVelocity = Instance.new("BodyVelocity")
+bodyVelocity.MaxForce = Vector3.new(1e5,1e5,1e5)
+bodyVelocity.Velocity = Vector3.new(0,0,0)
+bodyVelocity.Parent = player.Character.HumanoidRootPart
+
+while flying do
+wait()
+bodyVelocity.Velocity = workspace.CurrentCamera.CFrame.LookVector * speed
+end
+
+bodyVelocity:Destroy()
+end
+end
+end)">Copy</button>
+  
 </div>
 
 </div>
