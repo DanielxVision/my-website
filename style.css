@@ -252,13 +252,18 @@ transform:translateY(-100px) translateX(-50px);
 }
 
 .more-section{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:80px 20px;
+padding:100px 20px;
 }
 
 .more-buttons{
 display:flex;
 justify-content:center;
+align-items:center;
 gap:40px;
 flex-wrap:wrap;
 margin-top:30px;
