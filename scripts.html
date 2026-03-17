@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>More Scripts</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<h2 class="logo">DANIEL</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+</ul>
+</nav>
+
+<section class="section">
+
+<h2>All Roblox Scripts</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Speed Script</h3>
+<p>Increase player speed.</p>
+<button onclick="copyText('game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50')">Copy</button>
+</div>
+
+<div class="card">
+<h3>Infinite Jump</h3>
+<p>Jump unlimited times.</p>
+<button onclick="copyText('local UIS = game:GetService(\"UserInputService\") ...')">Copy</button>
+</div>
+
+<div class="card">
+<h3>Fly Script</h3>
+<p>Simple fly system.</p>
+<button onclick="copyText('loadstring(\"fly script here\")')">Copy</button>
+</div>
+
+</div>
+
+</section>
+
+<script>
+function copyText(text){
+navigator.clipboard.writeText(text);
+alert("Copied!");
+}
+</script>
+
+</body>
+</html>
