@@ -24,7 +24,7 @@
 <div class="card">
 <h3>Speed Script</h3>
 <p>Increase player speed.</p>
-<button onclick="copyText(-- Speed Script
+<button onclick="copyText(`-- Speed Script
 local player = game.Players.LocalPlayer
 
 player.CharacterAdded:Connect(function(char)
@@ -32,17 +32,16 @@ local humanoid = char:WaitForChild("Humanoid")
 humanoid.WalkSpeed = 50
 end)
 
--- if character already loaded
 if player.Character then
 player.Character.Humanoid.WalkSpeed = 50
-end)">Copy</button>
-  
+end
+`, 'Speed Script')">Copy</button>
 </div>
 
 <div class="card">
 <h3>Infinite Jump</h3>
 <p>Jump unlimited times.</p>
-<button onclick="copyText(-- Infinite Jump Script
+<button onclick="copyText(`-- Infinite Jump Script
 local UserInputService = game:GetService("UserInputService")
 local player = game.Players.LocalPlayer
 
@@ -54,14 +53,14 @@ if humanoid then
 humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
 end
 end
-end)">Copy</button>
-  
+end)
+`, 'Infinite Jump')">Copy</button>
 </div>
 
 <div class="card">
 <h3>Fly Script</h3>
 <p>Simple fly system.</p>
-<button onclick="copyText(-- Fly Script
+<button onclick="copyText(`-- Fly Script
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
@@ -86,8 +85,8 @@ end
 bodyVelocity:Destroy()
 end
 end
-end)">Copy</button>
-  
+end)
+`, 'Fly Script')">Copy</button>
 </div>
 
 </div>
@@ -95,9 +94,21 @@ end)">Copy</button>
 </section>
 
 <script>
-function copyText(text){
+function copyText(text, name){
 navigator.clipboard.writeText(text);
-alert("Copied!");
+
+let msg = document.createElement("div");
+msg.innerText = name + " copied!";
+msg.style.position = "fixed";
+msg.style.bottom = "30px";
+msg.style.left = "50%";
+msg.style.transform = "translateX(-50%)";
+msg.style.background = "black";
+msg.style.padding = "10px 20px";
+msg.style.borderRadius = "20px";
+
+document.body.appendChild(msg);
+setTimeout(()=> msg.remove(), 2000);
 }
 </script>
 
